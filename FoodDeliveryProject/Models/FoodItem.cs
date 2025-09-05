@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace EFCore.Models;
+
+public partial class FoodItem
+{
+    public int ItemId { get; set; }
+
+    public required int RestaurantId { get; set; }
+
+    public required string ItemName { get; set; }
+
+    public required decimal Price { get; set; }
+
+    public required decimal Rating { get; set; }
+
+    public required int CategoryId { get; set; }
+
+    public required bool Status { get; set; }
+
+    public required string Description { get; set; }
+
+    public required string Keywords {  get; set; }
+
+    public required virtual Category Category { get; set; }
+
+    public required virtual Restaurant Restaurant { get; set; }
+
+
+}
