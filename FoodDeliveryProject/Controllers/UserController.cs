@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using FoodDeliveryProject.Repositories;
-using FoodDeliveryProject.Models;
+using Infrastructure.Repositories;
+using Domain.Models;
 namespace FoodDeliveryProject.Controllers
 {
     [Route("api/[controller]")]

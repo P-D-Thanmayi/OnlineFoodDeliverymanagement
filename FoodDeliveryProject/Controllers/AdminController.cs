@@ -1,9 +1,9 @@
-﻿using FoodDeliveryProject.Repositories;
+﻿using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 
-using FoodDeliveryProject.Models;
+using Domain.Models;
 
 namespace FoodDeliveryProject.Controllers
 {

@@ -1,8 +1,9 @@
 
-using FoodDeliveryProject.Data;
-using FoodDeliveryProject.Repositories;
+using Domain.Data;
+using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace FoodDeliveryProject
 {
@@ -14,7 +15,12 @@ namespace FoodDeliveryProject
 
             // Add services to the container.
             builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+      options.UseSqlServer(
+          builder.Configuration.GetConnectionString("DefaultConnection"),
+          b => b.MigrationsAssembly("Domain")
+      ));
+
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
