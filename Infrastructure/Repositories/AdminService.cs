@@ -1,6 +1,7 @@
 ﻿using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Domain.Data;
+using FoodDeliveryProject.DTO;
 
 namespace Infrastructure.Repositories
 {
@@ -12,9 +13,17 @@ namespace Infrastructure.Repositories
             _context = context;
         }
         //filter based on role like restaurant,customer,deliveryagent
-        public IEnumerable<User> GetUserByRole(String role)
+        public IEnumerable<UserDto> GetUserByRole(String role)
         {
-            return _context.Users.Where(u => u.Role == role).ToList();
+            return _context.Users.Where(u => u.Role == role)
+                .Select(u => new UserDto
+                {
+                    Id = u.Id,
+                    Name = u.Name,
+                    Phoneno = u.Phoneno,
+                    IsValid = u.IsValid,
+                    Role = u.Role
+                }).ToList();
         }
 
         //get Restaurant by role
