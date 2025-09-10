@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EFCore.Models;
+namespace FoodDeliveryProject.Models;
 
 public partial class FoodItem
 {
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ItemId { get; set; }
 
     public required int RestaurantId { get; set; }

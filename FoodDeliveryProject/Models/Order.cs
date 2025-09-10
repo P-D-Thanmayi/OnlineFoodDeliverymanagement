@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EFCore.Models;
+namespace FoodDeliveryProject.Models;
 
 public partial class Order
 {
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int OrderId { get; set; }
 
     public required int UserId { get; set; }
@@ -13,7 +17,7 @@ public partial class Order
 
     public virtual ICollection<Delivery> Deliveries { get; set; } = new List<Delivery>();
 
-    public required virtual Restaurant Restaurant { get; set; }
+    public  virtual Restaurant? Restaurant { get; set; }
 
-    public required virtual User User { get; set; }
+    public  virtual User? User { get; set; }
 }

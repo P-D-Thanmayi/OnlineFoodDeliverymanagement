@@ -1,23 +1,96 @@
 [
   {
-    "ContainingType": "FoodDeliveryProject.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
+    "ContainingType": "FoodDeliveryProject.Controllers.AddressController",
+    "Method": "DeleteAddressById",
+    "RelativePath": "api/Address/delete/address/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.AdminController",
+    "Method": "GetCustomersByRole",
+    "RelativePath": "api/Admin/allCustomers",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.AdminController",
+    "Method": "GetDeliveryAgentsByRole",
+    "RelativePath": "api/Admin/alldeliveryagents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.AdminController",
+    "Method": "GetRestaurantsByRole",
+    "RelativePath": "api/Admin/allrestaurents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.AdminController",
+    "Method": "GetByRole",
+    "RelativePath": "api/Admin/allrestaurents/{role}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[FoodDeliveryProject.WeatherForecast, FoodDeliveryProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "role",
+        "Type": "System.String",
+        "IsRequired": true
       }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.UserController",
+    "Method": "GetOrdersByUser",
+    "RelativePath": "api/User/getorders/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.UserController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/User/getusers/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

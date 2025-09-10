@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EFCore.Models;
+namespace FoodDeliveryProject.Models;
 
 public partial class DeliveryAgent
 {
+    [Key, ForeignKey("User")]
     public int AgentId { get; set; }
 
     public required bool Status { get; set; }

@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EFCore.Models;
+namespace FoodDeliveryProject.Models;
 
 public partial class Review
 {
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ReviewId { get; set; }
 
     public required int UserId { get; set; }
@@ -15,7 +19,7 @@ public partial class Review
 
     public required string Comment { get; set; }
 
-    public required virtual Restaurant Restaurant { get; set; }
+    public  virtual Restaurant? Restaurant { get; set; }
 
-    public required virtual User User { get; set; }
+    public  virtual User? User { get; set; }
 }
