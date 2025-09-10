@@ -62,6 +62,58 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FoodDeliveryProject.Controllers.DeliveryController",
+    "Method": "GetDeliveriesByAgentId",
+    "RelativePath": "api/Delivery/agent/{AgentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AgentId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Domain.Models.Delivery, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.DeliveryController",
+    "Method": "GetDeliveryByOrderId",
+    "RelativePath": "api/Delivery/order/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Domain.Models.Delivery",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "FoodDeliveryProject.Controllers.UserController",
     "Method": "GetOrdersByUser",
     "RelativePath": "api/User/getorders/{id}",

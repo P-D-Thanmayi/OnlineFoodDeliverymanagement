@@ -18,7 +18,7 @@ public partial class Delivery
 
     public required bool Status { get; set; }
 
-    public required virtual DeliveryAgent Agent { get; set; }
+    public virtual DeliveryAgent? Agent { get; set; }
 
-    public required virtual Order Order { get; set; }
+    public virtual Order? Order { get; set; }
 }
