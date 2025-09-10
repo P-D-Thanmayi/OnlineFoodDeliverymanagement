@@ -18,9 +18,6 @@ namespace Infrastructure.Repositories
             _context.Users.Add(user);
             _context.SaveChanges();
         }
-
-        
-
            //addresses by user id
 
         public IEnumerable<Address> GetAddressesByUserId(int userId)
