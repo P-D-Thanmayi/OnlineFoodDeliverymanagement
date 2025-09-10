@@ -21,7 +21,7 @@ namespace FoodDeliveryProject.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("EFCore.Models.Address", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Address", b =>
                 {
                     b.Property<int>("AddressId")
                         .ValueGeneratedOnAdd()
@@ -47,7 +47,7 @@ namespace FoodDeliveryProject.Migrations
                     b.ToTable("address", (string)null);
                 });
 
-            modelBuilder.Entity("EFCore.Models.Category", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
@@ -69,7 +69,7 @@ namespace FoodDeliveryProject.Migrations
                     b.ToTable("category", (string)null);
                 });
 
-            modelBuilder.Entity("EFCore.Models.Delivery", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Delivery", b =>
                 {
                     b.Property<int>("DeliveryId")
                         .ValueGeneratedOnAdd()
@@ -100,7 +100,7 @@ namespace FoodDeliveryProject.Migrations
                     b.ToTable("delivery", (string)null);
                 });
 
-            modelBuilder.Entity("EFCore.Models.DeliveryAgent", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.DeliveryAgent", b =>
                 {
                     b.Property<int>("AgentId")
                         .HasColumnType("int")
@@ -116,7 +116,7 @@ namespace FoodDeliveryProject.Migrations
                     b.ToTable("delivery_agent", (string)null);
                 });
 
-            modelBuilder.Entity("EFCore.Models.FoodItem", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.FoodItem", b =>
                 {
                     b.Property<int>("ItemId")
                         .ValueGeneratedOnAdd()
@@ -173,7 +173,7 @@ namespace FoodDeliveryProject.Migrations
                     b.ToTable("food_items", (string)null);
                 });
 
-            modelBuilder.Entity("EFCore.Models.Order", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Order", b =>
                 {
                     b.Property<int>("OrderId")
                         .ValueGeneratedOnAdd()
@@ -200,7 +200,7 @@ namespace FoodDeliveryProject.Migrations
                     b.ToTable("orders", (string)null);
                 });
 
-            modelBuilder.Entity("EFCore.Models.OrderItem", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.OrderItem", b =>
                 {
                     b.Property<int>("ItemId")
                         .HasColumnType("int")
@@ -221,7 +221,7 @@ namespace FoodDeliveryProject.Migrations
                     b.ToTable("order_items", (string)null);
                 });
 
-            modelBuilder.Entity("EFCore.Models.Restaurant", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Restaurant", b =>
                 {
                     b.Property<int>("RestaurantId")
                         .HasColumnType("int")
@@ -237,7 +237,7 @@ namespace FoodDeliveryProject.Migrations
                     b.ToTable("restaurant", (string)null);
                 });
 
-            modelBuilder.Entity("EFCore.Models.Review", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Review", b =>
                 {
                     b.Property<int>("ReviewId")
                         .ValueGeneratedOnAdd()
@@ -273,7 +273,7 @@ namespace FoodDeliveryProject.Migrations
                     b.ToTable("review", (string)null);
                 });
 
-            modelBuilder.Entity("EFCore.Models.User", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -321,9 +321,9 @@ namespace FoodDeliveryProject.Migrations
                     b.ToTable("users", (string)null);
                 });
 
-            modelBuilder.Entity("EFCore.Models.Address", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Address", b =>
                 {
-                    b.HasOne("EFCore.Models.User", "Cust")
+                    b.HasOne("FoodDeliveryProject.Models.User", "Cust")
                         .WithMany("Addresses")
                         .HasForeignKey("CustId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -333,16 +333,16 @@ namespace FoodDeliveryProject.Migrations
                     b.Navigation("Cust");
                 });
 
-            modelBuilder.Entity("EFCore.Models.Delivery", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Delivery", b =>
                 {
-                    b.HasOne("EFCore.Models.DeliveryAgent", "Agent")
+                    b.HasOne("FoodDeliveryProject.Models.DeliveryAgent", "Agent")
                         .WithMany("Deliveries")
                         .HasForeignKey("AgentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK__delivery__agent___60A75C0F");
 
-                    b.HasOne("EFCore.Models.Order", "Order")
+                    b.HasOne("FoodDeliveryProject.Models.Order", "Order")
                         .WithMany("Deliveries")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -354,27 +354,27 @@ namespace FoodDeliveryProject.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("EFCore.Models.DeliveryAgent", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.DeliveryAgent", b =>
                 {
-                    b.HasOne("EFCore.Models.User", "Agent")
+                    b.HasOne("FoodDeliveryProject.Models.User", "Agent")
                         .WithOne("DeliveryAgent")
-                        .HasForeignKey("EFCore.Models.DeliveryAgent", "AgentId")
+                        .HasForeignKey("FoodDeliveryProject.Models.DeliveryAgent", "AgentId")
                         .IsRequired()
                         .HasConstraintName("FK__delivery___agent__5CD6CB2B");
 
                     b.Navigation("Agent");
                 });
 
-            modelBuilder.Entity("EFCore.Models.FoodItem", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.FoodItem", b =>
                 {
-                    b.HasOne("EFCore.Models.Category", "Category")
+                    b.HasOne("FoodDeliveryProject.Models.Category", "Category")
                         .WithMany("FoodItems")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK__food_item__categ__4316F928");
 
-                    b.HasOne("EFCore.Models.Restaurant", "Restaurant")
+                    b.HasOne("FoodDeliveryProject.Models.Restaurant", "Restaurant")
                         .WithMany("FoodItems")
                         .HasForeignKey("RestaurantId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -386,16 +386,16 @@ namespace FoodDeliveryProject.Migrations
                     b.Navigation("Restaurant");
                 });
 
-            modelBuilder.Entity("EFCore.Models.Order", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Order", b =>
                 {
-                    b.HasOne("EFCore.Models.Restaurant", "Restaurant")
+                    b.HasOne("FoodDeliveryProject.Models.Restaurant", "Restaurant")
                         .WithMany("Orders")
                         .HasForeignKey("RestaurantId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK__orders__restaura__46E78A0C");
 
-                    b.HasOne("EFCore.Models.User", "User")
+                    b.HasOne("FoodDeliveryProject.Models.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -407,16 +407,16 @@ namespace FoodDeliveryProject.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("EFCore.Models.OrderItem", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.OrderItem", b =>
                 {
-                    b.HasOne("EFCore.Models.FoodItem", "Item")
+                    b.HasOne("FoodDeliveryProject.Models.FoodItem", "Item")
                         .WithMany()
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK__order_ite__item___49C3F6B7");
 
-                    b.HasOne("EFCore.Models.Order", "Order")
+                    b.HasOne("FoodDeliveryProject.Models.Order", "Order")
                         .WithMany()
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -428,11 +428,11 @@ namespace FoodDeliveryProject.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("EFCore.Models.Restaurant", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Restaurant", b =>
                 {
-                    b.HasOne("EFCore.Models.User", "User")
+                    b.HasOne("FoodDeliveryProject.Models.User", "User")
                         .WithOne("Restaurant")
-                        .HasForeignKey("EFCore.Models.Restaurant", "RestaurantId")
+                        .HasForeignKey("FoodDeliveryProject.Models.Restaurant", "RestaurantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK__restauran__resta__3D5E1FD2");
@@ -440,16 +440,16 @@ namespace FoodDeliveryProject.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("EFCore.Models.Review", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Review", b =>
                 {
-                    b.HasOne("EFCore.Models.Restaurant", "Restaurant")
+                    b.HasOne("FoodDeliveryProject.Models.Restaurant", "Restaurant")
                         .WithMany("Reviews")
                         .HasForeignKey("RestaurantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK__review__restaura__5812160E");
 
-                    b.HasOne("EFCore.Models.User", "User")
+                    b.HasOne("FoodDeliveryProject.Models.User", "User")
                         .WithMany("Reviews")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -461,22 +461,22 @@ namespace FoodDeliveryProject.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("EFCore.Models.Category", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Category", b =>
                 {
                     b.Navigation("FoodItems");
                 });
 
-            modelBuilder.Entity("EFCore.Models.DeliveryAgent", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.DeliveryAgent", b =>
                 {
                     b.Navigation("Deliveries");
                 });
 
-            modelBuilder.Entity("EFCore.Models.Order", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Order", b =>
                 {
                     b.Navigation("Deliveries");
                 });
 
-            modelBuilder.Entity("EFCore.Models.Restaurant", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.Restaurant", b =>
                 {
                     b.Navigation("FoodItems");
 
@@ -485,7 +485,7 @@ namespace FoodDeliveryProject.Migrations
                     b.Navigation("Reviews");
                 });
 
-            modelBuilder.Entity("EFCore.Models.User", b =>
+            modelBuilder.Entity("FoodDeliveryProject.Models.User", b =>
                 {
                     b.Navigation("Addresses");
 

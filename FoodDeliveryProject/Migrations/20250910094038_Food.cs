@@ -5,7 +5,7 @@
 namespace FoodDeliveryProject.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class Food : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -57,7 +57,7 @@ namespace FoodDeliveryProject.Migrations
                         column: x => x.cust_id,
                         principalTable: "users",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -92,7 +92,7 @@ namespace FoodDeliveryProject.Migrations
                         column: x => x.restaurant_id,
                         principalTable: "users",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,7 +118,7 @@ namespace FoodDeliveryProject.Migrations
                         column: x => x.category_id,
                         principalTable: "category",
                         principalColumn: "category_id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK__food_item__resta__4222D4EF",
                         column: x => x.restaurant_id,
@@ -172,7 +172,7 @@ namespace FoodDeliveryProject.Migrations
                         column: x => x.restaurant_id,
                         principalTable: "restaurant",
                         principalColumn: "restaurant_id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK__review__user_id__571DF1D5",
                         column: x => x.user_id,
@@ -199,7 +199,7 @@ namespace FoodDeliveryProject.Migrations
                         column: x => x.agent_id,
                         principalTable: "delivery_agent",
                         principalColumn: "agent_id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK__delivery__order___5FB337D6",
                         column: x => x.order_id,
@@ -223,7 +223,7 @@ namespace FoodDeliveryProject.Migrations
                         column: x => x.item_id,
                         principalTable: "food_items",
                         principalColumn: "item_id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK__order_ite__order__48CFD27E",
                         column: x => x.order_id,

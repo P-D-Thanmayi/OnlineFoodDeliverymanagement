@@ -23,6 +23,7 @@ namespace FoodDeliveryProject
             builder.Services.AddScoped<UserServices>();
             builder.Services.AddScoped<AddressServices>();
             builder.Services.AddScoped<AdminService>();
+            builder.Services.AddScoped<OrderItemService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
