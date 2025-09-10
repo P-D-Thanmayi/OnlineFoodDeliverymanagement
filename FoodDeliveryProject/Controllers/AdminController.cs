@@ -1,9 +1,10 @@
 ﻿using FoodDeliveryProject.Repositories;
+using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 
-using FoodDeliveryProject.Models;
+
 
 namespace FoodDeliveryProject.Controllers
 {
@@ -18,41 +19,55 @@ namespace FoodDeliveryProject.Controllers
             this.adminService = adminService;
         }
 
-        [HttpGet("allrestaurents")]
-        public IActionResult GetRestaurantsByRole()
-        {
-              IEnumerable<User> restaurant= adminService.GetRestaurantByRole();
-            if(restaurant == null || !restaurant.Any())
-                return Ok(restaurant);
-            return NotFound("No restaurants found with the specified role.");
-        }
+        //[HttpGet("allrestaurents")]
+        //public IActionResult GetRestaurantsByRole()
+        //{
+        //      IEnumerable<User> restaurant= adminService.GetRestaurantByRole(string role);
+        //    if(restaurant == null || !restaurant.Any())
+        //        return Ok(restaurant);
+        //    return NotFound("No restaurants found with the specified role.");
+        //}
 
 
-        [HttpGet("alldeliveryagents")]
-        public IActionResult GetDeliveryAgentsByRole()
-        {
-            IEnumerable<User> deliveryAgents = adminService.GetDeliveryAgentByRole();
-            if (deliveryAgents == null || !deliveryAgents.Any())
-                return Ok(deliveryAgents);
-            return NotFound("No delivery agents found with the specified role.");
-        }
+        //[HttpGet("alldeliveryagents")]
+        //public IActionResult GetDeliveryAgentsByRole()
+        //{
+        //    IEnumerable<User> deliveryAgents = adminService.GetDeliveryAgentByRole();
+        //    if (deliveryAgents == null || !deliveryAgents.Any())
+        //        return Ok(deliveryAgents);
+        //    return NotFound("No delivery agents found with the specified role.");
+        //}
 
-        [HttpGet("allCustomers")]
-        public IActionResult GetCustomersByRole()
-        {
-            IEnumerable<User> customers = adminService.GetCustomerByRole();
-            if (customers == null || !customers.Any())
-                return Ok(customers);
-            return NotFound("No customers found with the specified role.");
-        }
+        //[HttpGet("allCustomers")]
+        //public IActionResult GetCustomersByRole()
+        //{
+        //    IEnumerable<User> customers = adminService.GetCustomerByRole();
+        //    if (customers == null || !customers.Any())
+        //        return Ok(customers);
+        //    return NotFound("No customers found with the specified role.");
+        //}
 
-        [HttpGet("allrestaurents/{role}")]
+        //[HttpGet("allrestaurents/{role}")]
         
-        public IActionResult GetByRole(string role) { 
-            IEnumerable<User> users = adminService.GetUserByRole(role);
-            if (users == null)
-                return Ok(users);
-            return NotFound("Not Found");
+        //public IActionResult GetRestaurantByRole(string role) { 
+        //    IEnumerable<User> users = adminService.GetRestaurantByRole(role);
+        //    if (!users.Any())
+        //    {
+        //        return NotFound($"user not found with role:{role}");
+        //    }
+        //    return Ok(users);
+        //}
+        [HttpGet("getuserby/{role}")]
+
+        public IActionResult GetByUserByRole(string role)
+        {
+            var users = adminService.GetUserByRole(role);
+            if (!users.Any())
+            {
+                return NotFound($"user not found with role:{role}");
+            }
+            return Ok(users);
         }
+
     }
 }

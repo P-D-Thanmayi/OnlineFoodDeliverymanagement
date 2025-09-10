@@ -62,30 +62,60 @@
     "ReturnTypes": []
   },
   {
+<<<<<<< HEAD
     "ContainingType": "FoodDeliveryProject.Controllers.OrderItemController",
     "Method": "GetFoodByOrder",
     "RelativePath": "api/OrderItem/getfooditemsbyid/{id}",
+=======
+    "ContainingType": "FoodDeliveryProject.Controllers.DeliveryController",
+    "Method": "GetDeliveriesByAgentId",
+    "RelativePath": "api/Delivery/agent/{AgentId}",
+>>>>>>> 82b9a22a46bf5610326f44db57b137d95048852b
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
+<<<<<<< HEAD
         "Name": "id",
+=======
+        "Name": "AgentId",
+>>>>>>> 82b9a22a46bf5610326f44db57b137d95048852b
         "Type": "System.Int32",
         "IsRequired": true
       }
     ],
+<<<<<<< HEAD
     "ReturnTypes": []
   },
   {
     "ContainingType": "FoodDeliveryProject.Controllers.ReviewController",
     "Method": "GetReviewsByRestaurant",
     "RelativePath": "api/Review/GetReviewbyRestaurant /{id}",
+=======
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Domain.Models.Delivery, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.DeliveryController",
+    "Method": "GetDeliveryByOrderId",
+    "RelativePath": "api/Delivery/order/{orderId}",
+>>>>>>> 82b9a22a46bf5610326f44db57b137d95048852b
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
+<<<<<<< HEAD
         "Name": "restaurantName",
         "Type": "System.String",
         "IsRequired": false
@@ -97,6 +127,24 @@
       }
     ],
     "ReturnTypes": []
+=======
+        "Name": "orderId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Domain.Models.Delivery",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+>>>>>>> 82b9a22a46bf5610326f44db57b137d95048852b
   },
   {
     "ContainingType": "FoodDeliveryProject.Controllers.UserController",
