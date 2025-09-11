@@ -17,38 +17,8 @@
   },
   {
     "ContainingType": "FoodDeliveryProject.Controllers.AdminController",
-    "Method": "GetCustomersByRole",
-    "RelativePath": "api/Admin/allCustomers",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDeliveryProject.Controllers.AdminController",
-    "Method": "GetDeliveryAgentsByRole",
-    "RelativePath": "api/Admin/alldeliveryagents",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDeliveryProject.Controllers.AdminController",
-    "Method": "GetRestaurantsByRole",
-    "RelativePath": "api/Admin/allrestaurents",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "FoodDeliveryProject.Controllers.AdminController",
-    "Method": "GetByRole",
-    "RelativePath": "api/Admin/allrestaurents/{role}",
+    "Method": "GetByUserByRole",
+    "RelativePath": "api/Admin/getuserby/{role}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -57,6 +27,58 @@
         "Name": "role",
         "Type": "System.String",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.CategoryController",
+    "Method": "AddCategory",
+    "RelativePath": "api/Category",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "catagoryDto",
+        "Type": "Domain.DTO.CategoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.CategoryController",
+    "Method": "GetAllCategories",
+    "RelativePath": "api/Category/categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.DeliveryController",
+    "Method": "UpdateDeliveryStatus",
+    "RelativePath": "api/Delivery",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "DeliveryId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -114,16 +136,46 @@
     ]
   },
   {
-    "ContainingType": "FoodDeliveryProject.Controllers.UserController",
-    "Method": "GetOrdersByUser",
-    "RelativePath": "api/User/getorders/{id}",
+    "ContainingType": "FoodDeliveryProject.Controllers.DeliveryAgentController",
+    "Method": "GetAvailableAgents",
+    "RelativePath": "api/DeliveryAgent/AvailableAgents",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Domain.DTO.DeliveryAgentDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.RestaurantController",
+    "Method": "GetRestaurants",
+    "RelativePath": "api/Restaurant",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.RestaurantController",
+    "Method": "AddRestaurant",
+    "RelativePath": "api/Restaurant",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "restaurantCreateDto",
+        "Type": "FoodDeliveryProject.DTO.RestaurantCreateDto",
         "IsRequired": true
       }
     ],
@@ -131,15 +183,15 @@
   },
   {
     "ContainingType": "FoodDeliveryProject.Controllers.UserController",
-    "Method": "GetAllUsers",
-    "RelativePath": "api/User/getusers/{id}",
-    "HttpMethod": "GET",
+    "Method": "CreateUser",
+    "RelativePath": "api/User",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "userDto",
+        "Type": "FoodDeliveryProject.DTO.UserDto",
         "IsRequired": true
       }
     ],

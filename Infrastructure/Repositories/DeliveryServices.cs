@@ -1,15 +1,17 @@
 ﻿using Domain.ADO;
+using Domain.DTO;
 using Domain.Models;
+using Infrastructure.Interfaces;
 using Microsoft.Extensions.Logging;
 using System.Data.SqlClient;
 
 namespace Infrastructure.Repositories
 {
-    public class DeliveryServices
+    public class DeliveryServices: IDelivery
     {
-        public Delivery GetDeliveryByOrderId(int id)
+        public DeliveryDto GetDeliveryByOrderId(int id)
         {
-            Delivery delivery = null;
+            DeliveryDto delivery = null;
 
             using (SqlConnection conn = SqlConn.GetConnection())
             {
@@ -20,7 +22,7 @@ namespace Infrastructure.Repositories
 
                 if (reader.Read())
                 {
-                    delivery = new Delivery
+                    delivery = new DeliveryDto
                     {
                         DeliveryId = Convert.ToInt32(reader["delivery_id"]),
                         OrderId = Convert.ToInt32(reader["order_id"]),
@@ -33,10 +35,9 @@ namespace Infrastructure.Repositories
             return delivery;
         }
 
-        public List<Delivery> GetDeliveriesByAgentId(int AgentId)
+        public List<DeliveryDto> GetDeliveriesByAgentId(int AgentId)
         {
-
-            var deliveries = new List<Delivery>();
+            var deliveries = new List<DeliveryDto>();
 
             using (SqlConnection conn = SqlConn.GetConnection())
             {
@@ -47,17 +48,29 @@ namespace Infrastructure.Repositories
 
                 while (reader.Read())
                 {
-                    deliveries.Add(new Delivery
+                    deliveries.Add(new DeliveryDto
                     {
                         DeliveryId = Convert.ToInt32(reader["delivery_id"]),
                         OrderId = Convert.ToInt32(reader["order_id"]),
-                        Status =(bool) reader["status"],
+                        Status = (bool)reader["status"],
                         AgentId = Convert.ToInt32(reader["agent_id"])
                     });
                 }
                 return deliveries;
 
             }
+        }
+
+        public bool UpdateDeliveryStatus(int DeliveryId)
+        {
+            using (SqlConnection conn = SqlConn.GetConnection())
+            {
+                string query = "Update delivery set status =1 where delivery_id=@id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id",DeliveryId);
+                cmd.ExecuteNonQuery();
+            }
+            return true;
         }
     }
 }
