@@ -1,6 +1,7 @@
 ﻿using Domain.Data;
 using Domain.Models;
 using FoodDeliveryProject.DTO;
+using Infrastructure.Interfaces;
 
 
 namespace FoodDeliveryProject.Repositories

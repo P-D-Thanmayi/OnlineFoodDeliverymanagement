@@ -1,6 +1,6 @@
 ﻿using FoodDeliveryProject.DTO;
 
-namespace FoodDeliveryProject.Repositories
+namespace Infrastructure.Interfaces
 {
     public interface IUserRepository
     {

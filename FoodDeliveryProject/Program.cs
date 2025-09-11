@@ -1,6 +1,7 @@
 
 using Domain.Data;
 using FoodDeliveryProject.Repositories;
+using Infrastructure.Interfaces;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -34,6 +35,9 @@ namespace FoodDeliveryProject
             builder.Services.AddScoped<AdminService>();
             builder.Services.AddScoped<IRestaurant, RestaurantImplementation>();
             builder.Services.AddScoped<IUserRepository, UserImplementation>();
+            builder.Services.AddScoped<IDeliveryAgent, DeliveryAgentService>();
+            builder.Services.AddScoped<IDelivery, DeliveryServices>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
