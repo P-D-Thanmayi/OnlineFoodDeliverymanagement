@@ -21,6 +21,57 @@ namespace Domain.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Domain.DTO.FoodByKeywords", b =>
+                {
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Description");
+
+                    b.Property<string>("ItemName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("item_name");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("price");
+
+                    b.Property<string>("RestaurantName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("name");
+
+                    b.ToTable("FoodByKeywords");
+                });
+
+            modelBuilder.Entity("Domain.DTO.OrderedItemsByUserDto", b =>
+                {
+                    b.Property<string>("ItemName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("item_name");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("price");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int")
+                        .HasColumnName("quantity");
+
+                    b.Property<decimal>("Rating")
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("rating");
+
+                    b.Property<string>("RestaurantName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("name");
+
+                    b.ToTable("OrderDetailsByUserId");
+                });
+
             modelBuilder.Entity("Domain.Models.Address", b =>
                 {
                     b.Property<int>("AddressId")
@@ -326,7 +377,7 @@ namespace Domain.Migrations
                     b.HasOne("Domain.Models.User", "Cust")
                         .WithMany("Addresses")
                         .HasForeignKey("CustId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK__address__cust_id__3A81B327");
 
@@ -338,14 +389,14 @@ namespace Domain.Migrations
                     b.HasOne("Domain.Models.DeliveryAgent", "Agent")
                         .WithMany("Deliveries")
                         .HasForeignKey("AgentId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK__delivery__agent___60A75C0F");
 
                     b.HasOne("Domain.Models.Order", "Order")
                         .WithMany("Deliveries")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK__delivery__order___5FB337D6");
 
@@ -359,6 +410,7 @@ namespace Domain.Migrations
                     b.HasOne("Domain.Models.User", "Agent")
                         .WithOne("DeliveryAgent")
                         .HasForeignKey("Domain.Models.DeliveryAgent", "AgentId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK__delivery___agent__5CD6CB2B");
 
@@ -370,14 +422,14 @@ namespace Domain.Migrations
                     b.HasOne("Domain.Models.Category", "Category")
                         .WithMany("FoodItems")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK__food_item__categ__4316F928");
 
                     b.HasOne("Domain.Models.Restaurant", "Restaurant")
                         .WithMany("FoodItems")
                         .HasForeignKey("RestaurantId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK__food_item__resta__4222D4EF");
 
@@ -412,14 +464,14 @@ namespace Domain.Migrations
                     b.HasOne("Domain.Models.FoodItem", "Item")
                         .WithMany()
                         .HasForeignKey("ItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK__order_ite__item___49C3F6B7");
 
                     b.HasOne("Domain.Models.Order", "Order")
                         .WithMany()
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK__order_ite__order__48CFD27E");
 
@@ -433,7 +485,7 @@ namespace Domain.Migrations
                     b.HasOne("Domain.Models.User", "User")
                         .WithOne("Restaurant")
                         .HasForeignKey("Domain.Models.Restaurant", "RestaurantId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK__restauran__resta__3D5E1FD2");
 
@@ -445,14 +497,14 @@ namespace Domain.Migrations
                     b.HasOne("Domain.Models.Restaurant", "Restaurant")
                         .WithMany("Reviews")
                         .HasForeignKey("RestaurantId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK__review__restaura__5812160E");
 
                     b.HasOne("Domain.Models.User", "User")
                         .WithMany("Reviews")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired()
                         .HasConstraintName("FK__review__user_id__571DF1D5");
 

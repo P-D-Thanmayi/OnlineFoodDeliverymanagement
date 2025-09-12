@@ -1,8 +1,8 @@
 ﻿using Domain.Models;
-using FoodDeliveryProject.DTO;
+using Domain.DTO;
 
 
-namespace FoodDeliveryProject.Repositories
+namespace Infrastructure.Interfaces
 {
     public interface IRestaurant
     {

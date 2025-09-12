@@ -1,6 +1,6 @@
-﻿using FoodDeliveryProject.DTO;
-
-using FoodDeliveryProject.Repositories;
+﻿using Domain.DTO;
+using Domain.Models;
+using Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
