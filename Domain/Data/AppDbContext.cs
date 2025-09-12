@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Domain.DTO;
+using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Data
@@ -13,8 +14,9 @@ namespace Domain.Data
         }
 
        
-
+        //public virtual DbSet<FoodByKeywords> FoodByKeywords { get; set; }
         public virtual DbSet<Address> Addresses { get; set; }
+
 
         public virtual DbSet<Category> Categories { get; set; }
 
@@ -34,7 +36,11 @@ namespace Domain.Data
 
         public virtual DbSet<User> Users { get; set; }
 
+        //Dto DbSet
 
+        public DbSet<FoodByKeywords> FoodByKeywords { get; set; }
+
+        public DbSet<OrderedItemsByUserDto> OrderDetailsByUserId { get; set; }
         //public AppDbContext CreateDbContext(string[] args)
         //{
         //    var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
@@ -47,6 +53,9 @@ namespace Domain.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<FoodByKeywords>().HasNoKey();
+            modelBuilder.Entity<OrderedItemsByUserDto>().HasNoKey();
+
             modelBuilder.Entity<Address>(entity =>
             {
                 entity.HasKey(e => e.AddressId).HasName("PK__address__CAA247C853D7D107");
@@ -63,6 +72,7 @@ namespace Domain.Data
 
                 entity.HasOne(d => d.Cust).WithMany(p => p.Addresses)
                     .HasForeignKey(d => d.CustId)
+                    .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK__address__cust_id__3A81B327");
             });
 
@@ -95,10 +105,12 @@ namespace Domain.Data
 
                 entity.HasOne(d => d.Agent).WithMany(p => p.Deliveries)
                     .HasForeignKey(d => d.AgentId)
+                    .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK__delivery__agent___60A75C0F");
 
                 entity.HasOne(d => d.Order).WithMany(p => p.Deliveries)
                     .HasForeignKey(d => d.OrderId)
+                    .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK__delivery__order___5FB337D6");
             });
 
@@ -115,7 +127,7 @@ namespace Domain.Data
 
                 entity.HasOne(d => d.Agent).WithOne(p => p.DeliveryAgent)
                     .HasForeignKey<DeliveryAgent>(d => d.AgentId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK__delivery___agent__5CD6CB2B");
             });
 
@@ -146,9 +158,11 @@ namespace Domain.Data
                     .HasColumnType("text");
                 entity.HasOne(d => d.Category).WithMany(p => p.FoodItems)
                     .HasForeignKey(d => d.CategoryId)
+                    .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK__food_item__categ__4316F928");
                 entity.HasOne(d => d.Restaurant).WithMany(p => p.FoodItems)
                     .HasForeignKey(d => d.RestaurantId)
+                    .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK__food_item__resta__4222D4EF");
             });
 
@@ -186,10 +200,12 @@ namespace Domain.Data
 
                 entity.HasOne(d => d.Item).WithMany()
                     .HasForeignKey(d => d.ItemId)
+                    .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK__order_ite__item___49C3F6B7");
 
                 entity.HasOne(d => d.Order).WithMany()
                     .HasForeignKey(d => d.OrderId)
+                    .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK__order_ite__order__48CFD27E");
             });
 
@@ -206,7 +222,7 @@ namespace Domain.Data
 
                 entity.HasOne(d => d.User).WithOne(p => p.Restaurant)
                     .HasForeignKey<Restaurant>(d => d.RestaurantId)
-                    .OnDelete(DeleteBehavior.Cascade)
+                    .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK__restauran__resta__3D5E1FD2");
             });
 
@@ -228,10 +244,12 @@ namespace Domain.Data
 
                 entity.HasOne(d => d.Restaurant).WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.RestaurantId)
+                    .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK__review__restaura__5812160E");
 
                 entity.HasOne(d => d.User).WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.UserId)
+                    .OnDelete(DeleteBehavior.Restrict)
                     .HasConstraintName("FK__review__user_id__571DF1D5");
             });
 

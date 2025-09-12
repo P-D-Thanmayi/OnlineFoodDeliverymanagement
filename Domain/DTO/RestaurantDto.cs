@@ -1,4 +1,4 @@
-﻿namespace FoodDeliveryProject.DTO
+﻿namespace Domain.DTO
 {
     public class RestaurantDto
     {

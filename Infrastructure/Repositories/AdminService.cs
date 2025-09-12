@@ -1,7 +1,7 @@
 ﻿using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Domain.Data;
-using FoodDeliveryProject.DTO;
+using Domain.DTO;
 
 namespace Infrastructure.Repositories
 {
@@ -18,7 +18,7 @@ namespace Infrastructure.Repositories
             return _context.Users.Where(u => u.Role == role)
                 .Select(u => new UserDto
                 {
-                    Id = u.Id,
+                   
                     Name = u.Name,
                     Phoneno = u.Phoneno,
                     IsValid = u.IsValid,

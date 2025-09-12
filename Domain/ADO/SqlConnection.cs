@@ -5,7 +5,7 @@ namespace Domain.ADO
 {
     public static class SqlConn
     {
-        private static readonly string _connectionString = "Data Source=LTIN523324\\SQLEXPRESS;Initial Catalog=FoodDelivery;Integrated Security=True;TrustServerCertificate=true";
+        private static readonly string _connectionString = "Data Source=LTIN490889;User=SA;Password=password-1;Initial Catalog=Food;TrustServerCertificate=true";
 
         public static SqlConnection GetConnection(){
 

@@ -1,5 +1,5 @@
 ﻿using Domain.Models;
-using FoodDeliveryProject.DTO;
+using Domain.DTO;
 
 
 namespace Infrastructure.Interfaces

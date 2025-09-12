@@ -28,9 +28,9 @@ public partial class FoodItem
 
     public required string Keywords {  get; set; }
 
-    public required virtual Category Category { get; set; }
+    public virtual Category? Category { get; set; }
 
-    public required virtual Restaurant Restaurant { get; set; }
+    public virtual Restaurant? Restaurant { get; set; }
 
 
 }
