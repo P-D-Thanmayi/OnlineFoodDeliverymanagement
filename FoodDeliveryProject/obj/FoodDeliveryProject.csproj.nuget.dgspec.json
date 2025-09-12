@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\FoodDeliveryProject\\FoodDeliveryProject.csproj": {}
+    "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\FoodDeliveryProject\\FoodDeliveryProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj": {
+    "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\2440005\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\2440012\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\2440005\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\2440012\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -51,10 +51,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[8.0.20, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.9, )"
@@ -94,20 +90,20 @@
         }
       }
     },
-    "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\FoodDeliveryProject\\FoodDeliveryProject.csproj": {
+    "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\FoodDeliveryProject\\FoodDeliveryProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\FoodDeliveryProject\\FoodDeliveryProject.csproj",
+        "projectUniqueName": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\FoodDeliveryProject\\FoodDeliveryProject.csproj",
         "projectName": "FoodDeliveryProject",
-        "projectPath": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\FoodDeliveryProject\\FoodDeliveryProject.csproj",
-        "packagesPath": "C:\\Users\\2440005\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\FoodDeliveryProject\\obj\\",
+        "projectPath": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\FoodDeliveryProject\\FoodDeliveryProject.csproj",
+        "packagesPath": "C:\\Users\\2440012\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\FoodDeliveryProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\2440005\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\2440012\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -123,11 +119,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj"
+              "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Infrastructure\\Infrastructure.csproj"
+              "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -148,10 +144,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[8.0.20, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.9, )"
@@ -190,20 +182,20 @@
         }
       }
     },
-    "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\2440005\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\2440012\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\2440005\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\2440012\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -219,11 +211,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj"
+              "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Domain\\Domain.csproj"
               },
-              "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Testing\\Testing.csproj": {
-                "projectPath": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Testing\\Testing.csproj"
+              "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Testing\\Testing.csproj": {
+                "projectPath": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Testing\\Testing.csproj"
               }
             }
           }
@@ -244,10 +236,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[8.0.20, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.9, )"
@@ -273,20 +261,20 @@
         }
       }
     },
-    "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Testing\\Testing.csproj": {
+    "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Testing\\Testing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Testing\\Testing.csproj",
+        "projectUniqueName": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Testing\\Testing.csproj",
         "projectName": "Testing",
-        "projectPath": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Testing\\Testing.csproj",
-        "packagesPath": "C:\\Users\\2440005\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\2440005\\source\\repos\\OnlineFoodDeliverymanagement\\Testing\\obj\\",
+        "projectPath": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Testing\\Testing.csproj",
+        "packagesPath": "C:\\Users\\2440012\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\2440012\\OneDrive - Cognizant\\Desktop\\FinalFood\\OnlineFoodDeliverymanagement\\Testing\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\2440005\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\2440012\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -320,10 +308,6 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[8.0.20, )"
-            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.8.0, )"

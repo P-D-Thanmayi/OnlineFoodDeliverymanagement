@@ -32,8 +32,8 @@ namespace FoodDeliveryProject
             builder.Services.AddSwaggerGen();
             builder.Services.AddScoped<UserServices>();
             builder.Services.AddScoped<AddressServices>();
-            builder.Services.AddScoped<AdminService>();
-            builder.Services.AddScoped<IRestaurant, RestaurantImplementation>();
+            builder.Services.AddScoped<IAdmin,AdminImplementation>();
+            builder.Services.AddScoped<IRestaurant,RestaurantImplementation>();
             builder.Services.AddScoped<IUserRepository, UserServices>();
             builder.Services.AddScoped<IDeliveryAgent, DeliveryAgentService>();
             builder.Services.AddScoped<IDelivery, DeliveryServices>();
