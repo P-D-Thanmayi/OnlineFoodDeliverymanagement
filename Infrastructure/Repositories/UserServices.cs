@@ -1,24 +1,41 @@
 ﻿using Domain.Data;
+using Domain.DTO;
 using Domain.Models;
-using Microsoft.EntityFrameworkCore.SqlServer;
+using Infrastructure.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
+
 namespace Infrastructure.Repositories
 {
-    public class UserServices
+    public class UserServices : IUserRepository
     {
         private readonly AppDbContext _context;
-        public UserServices(AppDbContext context)
+        public UserServices(AppDbContext appDbContext)
         {
-            _context = context;
+            _context = appDbContext;
         }
-
-        // Add methods for user-related operations here
-
-        public void AddUser(User user)
+        public UserDto CreateUser(UserDto userdto)
         {
+            var user = new User
+            {
+                Name = userdto.Name,
+                Phoneno = userdto.Phoneno,
+                Password = userdto.Password,
+                IsValid = false,
+                Role = userdto.Role
+            };
             _context.Users.Add(user);
             _context.SaveChanges();
+
+            return new UserDto
+            {
+                Name = user.Name,
+                Phoneno = user.Phoneno,
+                Password = user.Password,
+                IsValid = user.IsValid,
+                Role = user.Role
+            };
         }
-           //addresses by user id
 
         public IEnumerable<Address> GetAddressesByUserId(int userId)
         {
@@ -32,14 +49,52 @@ namespace Infrastructure.Repositories
 
 
         //get orders by user id
-        public IEnumerable<Order> GetOrdersByUserId(int userId)
+        public IEnumerable<OrderedItemsByUserDto> GetOrdersByUserId(int userid)
         {
-            var user = _context.Orders.Find(userId);
+            return _context.OrderDetailsByUserId.FromSqlRaw("exec proc_get_ordersby_userid @userid={0}", userid)
+                .ToList();
+
+        }
+
+        public UserDto UpdateUser(int id, UserDto userdto)
+        {
+            var existingAddress = _context.Users.Find(id);
+            if (existingAddress != null)
+            {
+                existingAddress.Name = userdto.Name;
+                existingAddress.Phoneno = userdto.Phoneno;
+                existingAddress.Password = userdto.Password;
+                existingAddress.IsValid = false;
+                existingAddress.Role = userdto.Role;
+
+                _context.SaveChanges();
+
+                return new UserDto
+                {
+                    Name = existingAddress.Name,
+                    Phoneno = existingAddress.Phoneno,
+                    Password = existingAddress.Password,
+                    IsValid = existingAddress.IsValid,
+                    Role = existingAddress.Role
+                };
+            }
+
+            return null;
+
+
+        }
+
+        public bool DeleteUser(int id)
+        {
+            var user = _context.Users.Find(id);
             if (user != null)
             {
-                return _context.Orders.Where(o=>o.UserId==userId).ToList();
+                _context.Users.Remove(user);
+                _context.SaveChanges();
+                return true;
             }
-            return Enumerable.Empty<Order>();
+            return false;
         }
+
     }
 }

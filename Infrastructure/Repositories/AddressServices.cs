@@ -1,9 +1,11 @@
 ﻿using Domain.Data;
+using Domain.DTO;
 using Domain.Models;
+using Infrastructure.Interfaces;
 using System.Linq;
 namespace Infrastructure.Repositories
 {
-    public class AddressServices
+    public class AddressServices : IAddress
     {
         private readonly AppDbContext _context;
         public AddressServices(AppDbContext context)
@@ -13,21 +15,55 @@ namespace Infrastructure.Repositories
         
         
         // Add a new address
-        public void AddAddress(Address address)
+        public AddressDto CreateAddress(AddressDto address)
         {
-            _context.Addresses.Add(address);
+            var newAddress = new Address
+            {
+                CustId = address.CustId,
+                Address1 = address.Address1
+            };
+            _context.Addresses.Add(newAddress);
             _context.SaveChanges();
+            return new AddressDto
+            {
+                CustId = newAddress.CustId,
+                Address1 = newAddress.Address1
+            };
         }
-        // Update an existing address
-        public void UpdateAddress(Address address)
+
+       //Update address
+        public AddressDto UpdateAddress(int addressid,AddressDto address)
         {
-            _context.Addresses.Update(address);
-            _context.SaveChanges();
+            var existingAddress = _context.Addresses.Find(addressid);
+            if (existingAddress != null)
+            {
+                existingAddress.CustId = address.CustId;
+                existingAddress.Address1 = address.Address1;
+               
+                _context.SaveChanges();
+                return new AddressDto
+                {
+                    CustId = existingAddress.CustId,
+                    Address1 = existingAddress.Address1
+                };
+            }
+            return null;
+            
         }
-        // Delete an address by ID
-        public bool DeleteAddress(int id)
+
+
+        // Get addresses by customer ID
+
+        public List<Address> GetAddressesByCustomerId(int custId) {
+
+            return _context.Addresses.Where(a => a.CustId == custId).ToList();
+            
+
+        }
+        
+        public bool DeleteAddressById(int custid)
         {
-            var address = _context.Addresses.Find(id);
+            var address = _context.Addresses.FirstOrDefault(a => a.CustId == custid);
             if (address != null)
             {
                 _context.Addresses.Remove(address);
@@ -36,5 +72,10 @@ namespace Infrastructure.Repositories
             }
             return false;
         }
-    }
+            
+        }
+
+
+
+    
 }
