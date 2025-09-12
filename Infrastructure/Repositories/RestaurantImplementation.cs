@@ -1,11 +1,11 @@
 ﻿using Domain.Data;
 using Domain.Models;
 
-using FoodDeliveryProject.DTO;
+using Domain.DTO;
 using Infrastructure.Interfaces;
 
 
-namespace FoodDeliveryProject.Repositories
+namespace Infrastructure.Repositories
 {
     public class RestaurantImplementation : IRestaurant
     {

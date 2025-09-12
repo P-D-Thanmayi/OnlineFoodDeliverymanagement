@@ -1,6 +1,6 @@
 
 using Domain.Data;
-using FoodDeliveryProject.Repositories;
+using Infrastructure.Repositories;
 using Infrastructure.Interfaces;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -34,7 +34,7 @@ namespace FoodDeliveryProject
             builder.Services.AddScoped<AddressServices>();
             builder.Services.AddScoped<AdminService>();
             builder.Services.AddScoped<IRestaurant, RestaurantImplementation>();
-            builder.Services.AddScoped<IUserRepository, UserImplementation>();
+            builder.Services.AddScoped<IUserRepository, UserServices>();
             builder.Services.AddScoped<IDeliveryAgent, DeliveryAgentService>();
             builder.Services.AddScoped<IDelivery, DeliveryServices>();
 

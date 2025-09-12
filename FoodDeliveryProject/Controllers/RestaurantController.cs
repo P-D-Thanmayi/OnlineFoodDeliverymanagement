@@ -1,4 +1,4 @@
-﻿using FoodDeliveryProject.DTO;
+﻿using Domain.DTO;
 using Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
