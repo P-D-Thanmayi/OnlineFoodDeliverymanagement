@@ -1,4 +1,5 @@
-﻿using FoodDeliveryProject.DTO;
+﻿using Domain.DTO;
+using FoodDeliveryProject.DTO;
 
 using FoodDeliveryProject.Repositories;
 using Microsoft.AspNetCore.Http;
@@ -28,6 +29,19 @@ namespace FoodDeliveryProject.Controllers
             }
             return Ok(restaurants);
         }
+        [HttpGet]
+        [Route("{id}")]
+        public ActionResult<RestaurantDto> GetRestaurantById([FromRoute] int id)
+        { 
+            var restaurantWithThatId= restaurant.GetRestaurantById(id);
+            if(restaurantWithThatId == null)
+            {
+                return NotFound();
+            }
+            return Ok(restaurantWithThatId);
+
+        }
+
         [HttpPost]
         public IActionResult AddRestaurant([FromBody] RestaurantCreateDto restaurantCreateDto)
         {
@@ -40,7 +54,54 @@ namespace FoodDeliveryProject.Controllers
 
 
         }
-       
+
+        [HttpPut]
+        [Route("{id}/{status}")]
+        public IActionResult UpdateRestaurantStatus([FromRoute] int id, [FromRoute] bool status)
+        {
+            var updated=restaurant.UpdateRestaurantStatus(id, status);
+            if (!updated)
+            {
+                return NotFound(new { message = "Restaurant not found with that id" });
+
+            }
+            return Ok(new {message="Restaurant status updated successfully"});
+        }
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult DeleteRestaurant(int id)
+        {
+            var deleted=restaurant.DeleteRestaurant(id);
+            if (!deleted)
+            {
+                return NotFound(new {message="restaurant not found with that id"});
+            }
+            return Ok(new { message = "Restaurant deleted successfully" });
+        }
+        [HttpGet]
+        [Route("RestaurantWithFoodItems")]
+        public IActionResult RestaurantWithThereFoodItems()
+        {
+            var result = restaurant.RestaurantWithThereFoodItems();
+            if (result == null || !result.Any())
+            {
+                return NotFound(new { message = "no restaurants found" });
+            }
+            return Ok(result);
+        }
+        //[HttpGet]
+        //[Route("byrole/{role}")]
+        //public IActionResult GetRestaurantByRole([FromRoute] string role)
+        //{
+        //    var restaurantWithThatRole = restaurant.GetRestaurantByRole(role);
+        //    if (restaurantWithThatRole == null)
+        //    {
+        //        return NotFound(new { message = "Not restaurants" });
+        //    }
+        //    return Ok(restaurantWithThatRole);
+        //}
+
+
 
     }
 }

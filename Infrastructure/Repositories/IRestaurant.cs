@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Domain.DTO;
+using Domain.Models;
 using FoodDeliveryProject.DTO;
 
 
@@ -8,5 +9,15 @@ namespace FoodDeliveryProject.Repositories
     {
         List<Restaurant> GetRestaurants();
         RestaurantDto AddRestaurant(RestaurantCreateDto restaurantCreateDto);
+
+        RestaurantDto GetRestaurantById(int id);
+
+        bool UpdateRestaurantStatus(int id, bool status);
+
+        bool DeleteRestaurant(int id);
+
+        //List<RestaurantDto> GetRestaurantByRole(string role);
+
+        public List<RestaurantWithFoodDto> RestaurantWithThereFoodItems();
     }
 }

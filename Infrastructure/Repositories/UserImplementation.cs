@@ -1,18 +1,20 @@
 ﻿using Domain.Data;
+using Domain.DTO;
 using Domain.Models;
 using FoodDeliveryProject.DTO;
 
 
 namespace FoodDeliveryProject.Repositories
 {
-    public class UserImplementation : IUserRepository
+    public class UserImplementation : IUser
     {
         private readonly AppDbContext appDbContext;
         public UserImplementation(AppDbContext appDbContext)
         {
             this.appDbContext = appDbContext;
         }
-        public UserDto CreateUser(UserDto userdto)
+        
+        public UserDto CreateUser(CreateUserDto userdto)
         {
             var user = new User
             {
@@ -29,10 +31,34 @@ namespace FoodDeliveryProject.Repositories
             {
                 Name = user.Name,
                 Phoneno = user.Phoneno,
-                Password = user.Password,
                 IsValid = user.IsValid,
                 Role = user.Role
             };
+        }
+        public List<UserDto> getUsers()
+        {
+            return appDbContext.Users.Select(u=>new UserDto
+            { 
+            
+                Id=u.Id,
+                Name = u.Name,
+                Phoneno=u.Phoneno,
+                Role = u.Role,
+                IsValid = u.IsValid
+            })
+            .ToList();
+        }
+        public List<UserDto> getUsersByRole(string role)
+        {
+            return appDbContext.Users.Where(r => r.Role == role)
+                .Select(r => new UserDto
+                {
+                    Id = r.Id,
+                    Name = r.Name,
+                    Phoneno = r.Phoneno,
+                    Role = r.Role,
+                    IsValid = r.IsValid
+                }).ToList();
         }
     }
 }

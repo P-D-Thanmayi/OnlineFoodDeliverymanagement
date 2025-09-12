@@ -4,16 +4,17 @@ using Infrastructure.Repositories;
 using Domain.Models;
 using FoodDeliveryProject.DTO;
 using FoodDeliveryProject.Repositories;
+using Domain.DTO;
 namespace FoodDeliveryProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserRepository userServices;
+        private readonly IUser userServices;
         
 
-        public UserController(IUserRepository userServices)
+        public UserController(IUser userServices)
         {
             this.userServices = userServices;
         }
@@ -30,17 +31,29 @@ namespace FoodDeliveryProject.Controllers
         //    IEnumerable<Order> orders = userServices.GetOrdersByUserId(id);
         //    return Ok(orders);
         //}
-
+        [HttpGet]
+        public ActionResult<List<UserDto>> getUsers()
+        {
+            var users=userServices.getUsers();
+            return Ok(users);
+        }
 
 
         [HttpPost]
-        public IActionResult CreateUser([FromBody] UserDto userDto)
+        public ActionResult<UserDto> CreateUser([FromBody] CreateUserDto userDto)
         {
             if (!ModelState.IsValid) { 
                 return BadRequest(ModelState);
             }   
             var createdUser=userServices.CreateUser(userDto);
             return Ok(createdUser);
+        }
+        [HttpGet]
+        [Route("{role}")]
+        public ActionResult<List<UserDto>> getUsersByRole(string role)
+        {
+            var usersWithThatRole = userServices.getUsersByRole(role);
+            return Ok(usersWithThatRole);
         }
     }
 }

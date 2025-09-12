@@ -29,9 +29,9 @@ namespace FoodDeliveryProject
             builder.Services.AddSwaggerGen();
             builder.Services.AddScoped<UserServices>();
             builder.Services.AddScoped<AddressServices>();
-            builder.Services.AddScoped<AdminService>();
             builder.Services.AddScoped<IRestaurant, RestaurantImplementation>();
-            builder.Services.AddScoped<IUserRepository, UserImplementation>();
+            builder.Services.AddScoped<IUser, UserImplementation>();
+            builder.Services.AddScoped<IAdmin, AdminImplementation>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

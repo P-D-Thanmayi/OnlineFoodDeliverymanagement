@@ -11,7 +11,7 @@ public partial class Restaurant
     [Key,ForeignKey("User")]
     public int RestaurantId { get; set; }
 
-    public required bool Status { get; set; }
+    public bool Status { get; set; }
 
     public virtual ICollection<FoodItem> FoodItems { get; set; } = new List<FoodItem>();
 
