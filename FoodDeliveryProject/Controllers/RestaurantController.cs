@@ -1,5 +1,4 @@
-﻿using Domain.DTO;
-using Domain.Models;
+﻿using FoodDeliveryProject.DTO;
 using Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;

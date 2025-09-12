@@ -1,8 +1,15 @@
-using Microsoft.EntityFrameworkCore;
-using Infrastructure.Repositories;
+
 using Domain.Data;
+using FoodDeliveryProject.Repositories;
 using Infrastructure.Interfaces;
-public class Program
+using Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+
+namespace FoodDeliveryProject
+{
+    public class Program
     {
         public static void Main(string[] args)
         {
@@ -23,17 +30,15 @@ public class Program
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-           
-            
+            builder.Services.AddScoped<UserServices>();
+            builder.Services.AddScoped<AddressServices>();
             builder.Services.AddScoped<AdminService>();
-            builder.Services.AddScoped<DeliveryServices>();
             builder.Services.AddScoped<IRestaurant, RestaurantImplementation>();
-            builder.Services.AddScoped<IUserRepository, UserServices>();
-             builder.Services.AddScoped<IAddress, AddressServices>();
-           builder.Services.AddScoped<IFoodItems, FoodItemServices>();
-        builder.Services.AddScoped<OrderServices>();
-           
-        var app = builder.Build();
+            builder.Services.AddScoped<IUserRepository, UserImplementation>();
+            builder.Services.AddScoped<IDeliveryAgent, DeliveryAgentService>();
+            builder.Services.AddScoped<IDelivery, DeliveryServices>();
+
+            var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -52,4 +57,4 @@ public class Program
             app.Run();
         }
     }
-
+}

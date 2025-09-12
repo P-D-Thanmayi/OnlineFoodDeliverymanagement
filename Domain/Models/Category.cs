@@ -14,5 +14,5 @@ public partial class Category
 
     public required string Name { get; set; }
 
-    public required virtual ICollection<FoodItem> FoodItems { get; set; } = new List<FoodItem>();
+    public virtual ICollection<FoodItem> FoodItems { get; set; } = new List<FoodItem>();
 }

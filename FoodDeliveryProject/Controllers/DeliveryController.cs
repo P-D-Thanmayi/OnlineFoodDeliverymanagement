@@ -2,6 +2,7 @@
 using Domain.ADO;    
 using Microsoft.AspNetCore.Mvc;
 using Infrastructure.Repositories;
+using Domain.DTO;
 
 namespace FoodDeliveryProject.Controllers
 {
@@ -36,6 +37,17 @@ namespace FoodDeliveryProject.Controllers
                 return NotFound($"No delivery found for Agent ID: {AgentId}");
             }
             return Ok(deliveries);
+        }
+
+        [HttpPut]
+        public ActionResult UpdateDeliveryStatus(int DeliveryId)
+        { 
+            var status=_deliveryService.UpdateDeliveryStatus(DeliveryId);
+            if(!status)
+            {
+                return BadRequest("");
+            }
+            return Ok(status);
         }
 
     }
