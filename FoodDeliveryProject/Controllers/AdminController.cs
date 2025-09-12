@@ -20,10 +20,12 @@ namespace FoodDeliveryProject.Controllers
         }
 
         [HttpGet("/TotalUsers")]
-        public ActionResult<int> getAllUsersCount()
+        public ActionResult<object> GetAllUsersCount()
         {
-            return admin.getAllUsersCount();
+            int count = admin.getAllUsersCount();
+            return Ok(new { message = "total no of users are", count });
         }
+
 
         //[HttpGet]
         //[Route("byrole{role}")]
