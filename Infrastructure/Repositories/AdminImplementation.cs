@@ -104,9 +104,9 @@ namespace Infrastructure.Repositories
         //    appDbContext.SaveChanges();
         //    return true;
         //}
-        public List<DeliveryAgentDto> getDeliveryAgents()
+        public List<DeliveryAgentDtoHelp> getDeliveryAgents()
         {
-            return appDbContext.DeliveryAgents.Select(u=>new DeliveryAgentDto
+            return appDbContext.DeliveryAgents.Select(u=>new DeliveryAgentDtoHelp
             {
                 AgentId=u.AgentId,
                 AgentName=u.Agent.Name,
