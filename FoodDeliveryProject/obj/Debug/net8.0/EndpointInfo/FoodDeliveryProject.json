@@ -561,31 +561,30 @@
         }
       }
     },
-    "/api/Order/AddingordersbyId/{userid}/{restaurantid}": {
+    "/api/Order/AddingordersbyId": {
       "post": {
         "tags": [
           "Order"
         ],
-        "parameters": [
-          {
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "restaurantId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddOrderDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddOrderDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddOrderDto"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -593,7 +592,7 @@
         }
       }
     },
-    "/api/Order/GetOrderbyUserId /{Id} ": {
+    "/api/Order/GetOrderbyorderId/{id}": {
       "get": {
         "tags": [
           "Order"
@@ -616,33 +615,10 @@
         }
       }
     },
-    "/api/Order/GetOrderbyrestaurantId /{Id} ": {
+    "/api/OrderItem/getfooditemsbyid/{id}": {
       "get": {
         "tags": [
-          "Order"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Order/GetOrderbyorderId /{Id} ": {
-      "get": {
-        "tags": [
-          "Order"
+          "OrderItem"
         ],
         "parameters": [
           {
@@ -696,6 +672,51 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Review/GetReviewsByRestaurant/{restaurantName}": {
+      "get": {
+        "tags": [
+          "Review"
+        ],
+        "parameters": [
+          {
+            "name": "restaurantName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Review/Getrestaurantbyrating/{id}": {
+      "get": {
+        "tags": [
+          "Review"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -881,6 +902,20 @@
   },
   "components": {
     "schemas": {
+      "AddOrderDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "restaurantId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "Address": {
         "required": [
           "address1",
