@@ -5,6 +5,7 @@ using FoodDeliveryProject.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FoodDeliveryProject.Controllers
 {
@@ -19,16 +20,33 @@ namespace FoodDeliveryProject.Controllers
         }
 
 
+        //[HttpGet]
+        //public IActionResult GetRestaurants()
+        //{
+        //    var restaurants=restaurant.GetRestaurants();
+        //    if(restaurants == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(restaurants);
+        //}
         [HttpGet]
+        [Route("api/Restaurant")]
         public IActionResult GetRestaurants()
         {
-            var restaurants=restaurant.GetRestaurants();
-            if(restaurants == null)
-            {
-                return NotFound();
-            }
+            var restaurants =restaurant.GetRestaurants()
+                .Select(r => new
+                {
+                    r.RestaurantId,
+                    r.Status,
+                    r.FoodItems,
+                    r.Reviews
+                })
+                .ToList();
+
             return Ok(restaurants);
         }
+
         [HttpGet]
         [Route("{id}")]
         public ActionResult<RestaurantDto> GetRestaurantById([FromRoute] int id)
