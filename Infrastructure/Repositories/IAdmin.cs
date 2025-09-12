@@ -25,9 +25,9 @@ namespace Infrastructure.Repositories
         List<RestaurantOrderSummaryDto> restaurantOrderSummaryDto();
        // bool UpdateDeliveryAgentStatus(int id , bool status);
 
-        List<DeliveryAgentDto> getDeliveryAgents();
+        List<AdminDeliveryAgentDto> getDeliveryAgents();
 
-        List<UserDto> getCustomers();
+        List<AdminUserDto> getCustomers();
 
     }
 }

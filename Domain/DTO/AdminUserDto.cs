@@ -1,6 +1,6 @@
 ﻿namespace FoodDeliveryProject.DTO
 {
-    public class UserDto
+    public class AdminUserDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

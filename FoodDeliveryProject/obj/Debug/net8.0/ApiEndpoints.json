@@ -1,21 +1,5 @@
 [
   {
-    "ContainingType": "FoodDeliveryProject.Controllers.AddressController",
-    "Method": "DeleteAddressById",
-    "RelativePath": "api/Address/delete/address/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "FoodDeliveryProject.Controllers.AdminController",
     "Method": "ApproverOrBlockRestaurant",
     "RelativePath": "api/Admin/ApproverOrBlockUser/{id}/{isValid}",
@@ -182,78 +166,6 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "FoodDeliveryProject.Controllers.UserController",
-    "Method": "getUsers",
-    "RelativePath": "api/User",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[FoodDeliveryProject.DTO.UserDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FoodDeliveryProject.Controllers.UserController",
-    "Method": "CreateUser",
-    "RelativePath": "api/User",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "userDto",
-        "Type": "Domain.DTO.CreateUserDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "FoodDeliveryProject.DTO.UserDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FoodDeliveryProject.Controllers.UserController",
-    "Method": "getUsersByRole",
-    "RelativePath": "api/User/{role}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "role",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[FoodDeliveryProject.DTO.UserDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
     "ContainingType": "FoodDeliveryProject.Controllers.AdminController",
     "Method": "GetCustomers",
     "RelativePath": "getCustomers",
@@ -263,7 +175,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[FoodDeliveryProject.DTO.UserDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[FoodDeliveryProject.DTO.AdminUserDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

@@ -32,7 +32,7 @@ namespace FoodDeliveryProject.Controllers
         //    return admin.getUsersByRole(role);
         //}
         [HttpGet("/getCustomers")]
-        public ActionResult<List<UserDto>> GetCustomers()
+        public ActionResult<List<AdminUserDto>> GetCustomers()
         {
             var Customers = admin.getCustomers();
             if (Customers == null)

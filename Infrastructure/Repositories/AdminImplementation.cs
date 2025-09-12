@@ -104,9 +104,9 @@ namespace Infrastructure.Repositories
         //    appDbContext.SaveChanges();
         //    return true;
         //}
-        public List<DeliveryAgentDto> getDeliveryAgents()
+        public List<AdminDeliveryAgentDto> getDeliveryAgents()
         {
-            return appDbContext.DeliveryAgents.Select(u=>new DeliveryAgentDto
+            return appDbContext.DeliveryAgents.Select(u=>new AdminDeliveryAgentDto
             {
                 AgentId=u.AgentId,
                 AgentName=u.Agent.Name,
@@ -114,10 +114,10 @@ namespace Infrastructure.Repositories
             }).ToList();
         }
 
-        public List<UserDto> getCustomers()
+        public List<AdminUserDto> getCustomers()
         {
             var Customers = appDbContext.Users.Where(u => u.Role == "Customer")
-                .Select(x => new UserDto
+                .Select(x => new AdminUserDto
                 {
                     Id = x.Id,
                     Name = x.Name,
