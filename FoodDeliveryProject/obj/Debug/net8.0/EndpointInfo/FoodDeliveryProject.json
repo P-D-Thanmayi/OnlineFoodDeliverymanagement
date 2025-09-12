@@ -50,6 +50,43 @@
         }
       }
     },
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "username": {
+                  "style": "form"
+                },
+                "password": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Category/categories": {
       "get": {
         "tags": [
@@ -119,7 +156,7 @@
         }
       }
     },
-    "/api/Delivery/order/{orderId}": {
+    "/api/Delivery/DeliveryDetailsByOrderId/{orderId}": {
       "get": {
         "tags": [
           "Delivery"
@@ -133,6 +170,13 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "CustAddress",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -141,17 +185,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Delivery"
+                  "$ref": "#/components/schemas/DeliveryDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Delivery"
+                  "$ref": "#/components/schemas/DeliveryDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Delivery"
+                  "$ref": "#/components/schemas/DeliveryDto"
                 }
               }
             }
@@ -159,10 +203,48 @@
         }
       }
     },
-    "/api/Delivery/agent/{AgentId}": {
+    "/api/Delivery/AvailableAgents": {
       "get": {
         "tags": [
           "Delivery"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeliveryAgentDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeliveryAgentDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DeliveryAgentDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DeliveryAgent/AllDeliveriesByAgent/{AgentId}": {
+      "get": {
+        "tags": [
+          "DeliveryAgent"
         ],
         "parameters": [
           {
@@ -208,10 +290,10 @@
         }
       }
     },
-    "/api/Delivery": {
+    "/api/DeliveryAgent/UpdateDeliveryStatus": {
       "put": {
         "tags": [
-          "Delivery"
+          "DeliveryAgent"
         ],
         "parameters": [
           {
@@ -226,44 +308,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/DeliveryAgent/AvailableAgents": {
-      "get": {
-        "tags": [
-          "DeliveryAgent"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DeliveryAgentDto"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DeliveryAgentDto"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DeliveryAgentDto"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -466,6 +510,36 @@
           "agentId": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeliveryDto": {
+        "type": "object",
+        "properties": {
+          "deliveryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "restaurantName": {
+            "type": "string",
+            "nullable": true
+          },
+          "restaurantAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerAddress": {
+            "type": "string",
+            "nullable": true
           },
           "status": {
             "type": "boolean"
@@ -750,6 +824,19 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme (Example: 'Bearer 12345abcdef')",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

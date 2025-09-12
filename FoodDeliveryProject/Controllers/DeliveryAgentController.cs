@@ -15,15 +15,29 @@ namespace FoodDeliveryProject.Controllers
         {
             _deliveryAgentService=new DeliveryAgentService();
         }
-        [HttpGet("AvailableAgents")]
-        public ActionResult<List<DeliveryAgentDto>> GetAvailableAgents()
+
+        //for delivery agent
+        [HttpGet("AllDeliveriesByAgent/{AgentId}")]
+        public ActionResult<List<Delivery>> GetDeliveriesByAgentId(int AgentId)
         {
-            var agents = _deliveryAgentService.GetAvailableAgents();
-            if (agents == null) 
+            var deliveries = _deliveryAgentService.GetDeliveriesByAgentId(AgentId);
+            if (deliveries == null)
             {
-                return NotFound("No delivery agents found.");
+                return NotFound($"No delivery found for Agent ID: {AgentId}");
             }
-            return agents;
+            return Ok(deliveries);
+        }
+
+        //for delivery agent
+        [HttpPut("UpdateDeliveryStatus")]
+        public ActionResult UpdateDeliveryStatus(int DeliveryId)
+        {
+            var status = _deliveryAgentService.UpdateDeliveryStatus(DeliveryId);
+            if (!status)
+            {
+                return BadRequest("");
+            }
+            return Ok(status);
         }
     }
 }

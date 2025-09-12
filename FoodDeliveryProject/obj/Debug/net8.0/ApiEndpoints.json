@@ -32,6 +32,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "FoodDeliveryProject.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FoodDeliveryProject.Controllers.CategoryController",
     "Method": "AddCategory",
     "RelativePath": "api/Category",
@@ -69,24 +90,59 @@
   },
   {
     "ContainingType": "FoodDeliveryProject.Controllers.DeliveryController",
-    "Method": "UpdateDeliveryStatus",
-    "RelativePath": "api/Delivery",
-    "HttpMethod": "PUT",
+    "Method": "GetAvailableAgents",
+    "RelativePath": "api/Delivery/AvailableAgents",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Domain.DTO.DeliveryAgentDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.DeliveryController",
+    "Method": "GetDeliveryDetailsByOrderId",
+    "RelativePath": "api/Delivery/DeliveryDetailsByOrderId/{orderId}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "DeliveryId",
+        "Name": "orderId",
         "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "CustAddress",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "Domain.DTO.DeliveryDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
-    "ContainingType": "FoodDeliveryProject.Controllers.DeliveryController",
+    "ContainingType": "FoodDeliveryProject.Controllers.DeliveryAgentController",
     "Method": "GetDeliveriesByAgentId",
-    "RelativePath": "api/Delivery/agent/{AgentId}",
+    "RelativePath": "api/DeliveryAgent/AllDeliveriesByAgent/{AgentId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -110,50 +166,20 @@
     ]
   },
   {
-    "ContainingType": "FoodDeliveryProject.Controllers.DeliveryController",
-    "Method": "GetDeliveryByOrderId",
-    "RelativePath": "api/Delivery/order/{orderId}",
-    "HttpMethod": "GET",
+    "ContainingType": "FoodDeliveryProject.Controllers.DeliveryAgentController",
+    "Method": "UpdateDeliveryStatus",
+    "RelativePath": "api/DeliveryAgent/UpdateDeliveryStatus",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "orderId",
+        "Name": "DeliveryId",
         "Type": "System.Int32",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Domain.Models.Delivery",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "FoodDeliveryProject.Controllers.DeliveryAgentController",
-    "Method": "GetAvailableAgents",
-    "RelativePath": "api/DeliveryAgent/AvailableAgents",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[Domain.DTO.DeliveryAgentDto, Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "FoodDeliveryProject.Controllers.RestaurantController",

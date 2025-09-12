@@ -650,3 +650,4 @@ C:\Users\2440159\source\repos\FoodDeliveryManagement\OnlineFoodDeliverymanagemen
 C:\Users\2440159\source\repos\FoodDeliveryManagement\OnlineFoodDeliverymanagement\FoodDeliveryProject\obj\Debug\net8.0\FoodDeliveryProject.pdb
 C:\Users\2440159\source\repos\FoodDeliveryManagement\OnlineFoodDeliverymanagement\FoodDeliveryProject\obj\Debug\net8.0\FoodDeliveryProject.genruntimeconfig.cache
 C:\Users\2440159\source\repos\FoodDeliveryManagement\OnlineFoodDeliverymanagement\FoodDeliveryProject\obj\Debug\net8.0\ref\FoodDeliveryProject.dll
+C:\Users\2440159\source\repos\FoodDeliveryManagement\OnlineFoodDeliverymanagement\FoodDeliveryProject\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

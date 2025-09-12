@@ -7,6 +7,13 @@ namespace Domain.ADO
     {
         private static readonly string _connectionString = "Data Source=LTIN523324\\SQLEXPRESS;Initial Catalog=FoodDelivery;Integrated Security=True;TrustServerCertificate=true";
 
+        //private static string _connectionString;
+
+        //public static void Initialize(IConfiguration configuration)
+        //{
+        //    _connectionString = configuration.GetConnectionString("DefaultConnection");
+        //}
+
         public static SqlConnection GetConnection(){
 
             var connection = new SqlConnection(_connectionString);
