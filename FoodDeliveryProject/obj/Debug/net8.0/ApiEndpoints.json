@@ -1,6 +1,27 @@
 [
   {
     "ContainingType": "FoodDeliveryProject.Controllers.AddressController",
+    "Method": "CreateAddress",
+    "RelativePath": "api/Address/create/address",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CustId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address1",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.AddressController",
     "Method": "DeleteAddressById",
     "RelativePath": "api/Address/delete/address/{id}",
     "HttpMethod": "DELETE",
@@ -11,6 +32,48 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.AddressController",
+    "Method": "GetAddressesByCustomerId",
+    "RelativePath": "api/Address/get/addresses/{custId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "custId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.AddressController",
+    "Method": "UpdateAddress",
+    "RelativePath": "api/Address/update/address",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "CustId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Address1",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -156,6 +219,214 @@
     ]
   },
   {
+    "ContainingType": "FoodDeliveryProject.Controllers.FoodItemController",
+    "Method": "AddFoodItems",
+    "RelativePath": "api/FoodItem/addfooditems",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "restaurant_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "item_name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "rating",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "category_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "keywords",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.FoodItemController",
+    "Method": "DeleteFoodItem",
+    "RelativePath": "api/FoodItem/delete/fooditem/{itemid}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itemid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.FoodItemController",
+    "Method": "GetByFoodItems",
+    "RelativePath": "api/FoodItem/GetFoodItemsByKeywords",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "keyword",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.FoodItemController",
+    "Method": "UpdateFoodItem",
+    "RelativePath": "api/FoodItem/update/fooditem",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "foodid",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "restaurant_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "item_name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "rating",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "category_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "keywords",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.OrderController",
+    "Method": "AddingOrder",
+    "RelativePath": "api/Order/AddingordersbyId/{userid}/{restaurantid}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "restaurantId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.OrderController",
+    "Method": "GetOrderByorderId",
+    "RelativePath": "api/Order/GetOrderbyorderId /{Id} ",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.OrderController",
+    "Method": "GetOrderByrestaurantId",
+    "RelativePath": "api/Order/GetOrderbyrestaurantId /{Id} ",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.OrderController",
+    "Method": "GetOrderByUserId",
+    "RelativePath": "api/Order/GetOrderbyUserId /{Id} ",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "FoodDeliveryProject.Controllers.RestaurantController",
     "Method": "GetRestaurants",
     "RelativePath": "api/Restaurant",
@@ -175,7 +446,7 @@
     "Parameters": [
       {
         "Name": "restaurantCreateDto",
-        "Type": "FoodDeliveryProject.DTO.RestaurantCreateDto",
+        "Type": "Domain.DTO.RestaurantCreateDto",
         "IsRequired": true
       }
     ],
@@ -190,9 +461,118 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userDto",
-        "Type": "FoodDeliveryProject.DTO.UserDto",
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Phoneno",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsValid",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Role",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/User/delete/user/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.UserController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/User/get/alladdress/users/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.UserController",
+    "Method": "GetOrdersByUser",
+    "RelativePath": "api/User/getorders/{userid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FoodDeliveryProject.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/User/update/user",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Phoneno",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsValid",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Role",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

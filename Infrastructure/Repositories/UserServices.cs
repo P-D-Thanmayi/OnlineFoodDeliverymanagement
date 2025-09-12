@@ -51,12 +51,12 @@ namespace Infrastructure.Repositories
         //get orders by user id
         public IEnumerable<OrderedItemsByUserDto> GetOrdersByUserId(int userid)
         {
-            return _context.OrderDetailsByUserId.FromSqlRaw("exec proc_get_ordersby_userid @userid={0}",userid)
+            return _context.OrderDetailsByUserId.FromSqlRaw("exec proc_get_ordersby_userid @userid={0}", userid)
                 .ToList();
-            
+
         }
 
-        public UserDto UpdateUser(int id,UserDto userdto)
+        public UserDto UpdateUser(int id, UserDto userdto)
         {
             var existingAddress = _context.Users.Find(id);
             if (existingAddress != null)
@@ -67,7 +67,7 @@ namespace Infrastructure.Repositories
                 existingAddress.IsValid = false;
                 existingAddress.Role = userdto.Role;
 
-                    _context.SaveChanges();
+                _context.SaveChanges();
 
                 return new UserDto
                 {
@@ -81,7 +81,7 @@ namespace Infrastructure.Repositories
 
             return null;
 
-            
+
         }
 
         public bool DeleteUser(int id)
